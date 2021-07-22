@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,7 @@
       <p><a href="/create_account">Crear cuenta</a></p>
       <p><a href="/login">Iniciar sesión</a></p>
       {% else %}
+      <img src="{{ url_for('user_pic', filename=current_user.pic_name) }}" />
       <h2>Hola {{ current_user.name }}, Bienvenido a NBC Latam</h2>
       <br />
       <a href="{{ url_for('logout') }}">Cerrar sesión</a>
