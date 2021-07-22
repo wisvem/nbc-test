@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSP Test - Login page</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login</h1>
+      <br />
+      <form action="" method="post">
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          value="{{ request.form.email }}"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          value="{{ request.form.password }}"
+        />
+        <input class="btn btn-default" type="submit" value="Login" />
+      </form>
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+    </div>
+  </body>
+</html>
