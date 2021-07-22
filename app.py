@@ -17,6 +17,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '3c314a4d0a16401e7a154afe640957c6b9f57'
 app.config['UPLOAD_FOLDER'] = './data/images/'
+makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 app.url_map.strict_slashes = False
