@@ -5,22 +5,22 @@ from flask import redirect, request, url_for
 from flask import send_from_directory
 from flask_login import LoginManager, login_required
 from flask_login import login_user, logout_user, current_user
-from flask_sqlalchemy import SQLAlchemy
 from forms.create_account import CreateAccountForm
 from forms.login import LoginForm
 from models.users import User
+from models.engine import db
 from os.path import join, splitext
-from os import makedirs, getenvb
+from os import makedirs, getenv
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 
-usr = getenvb('MYSQL_USER')
-pwd = getenvb('MYSQL_PWD')
-host = getenvb('MYSQL_HOST')
-db_name = getenvb('MYSQL_DB')
-env = getenvb('HBNB_ENV')
-mysql_uri = f'mysql+mysqldb://{usr}:{pwd}@{host}/{db_name}'
+usr = getenv('MYSQL_USER')
+pwd = getenv('MYSQL_PWD')
+host = getenv('MYSQL_HOST')
+db_name = getenv('MYSQL_DB')
+env = getenv('HBNB_ENV')
+mysql_uri = f'mysql+pymysql://{usr}:{pwd}@{host}/{db_name}'
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -32,7 +32,9 @@ makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
-db = SQLAlchemy(app)
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 
 @app.route('/')
@@ -79,7 +81,7 @@ def create_account():
         email = form.email.data
         password = form.password.data
         profile_pic = form.pic.data
-        user = User.get_by_email()
+        user = User.get_by_email(email)
         if user:
             error = f'El {email} ya se encuentra registrado'
         else:

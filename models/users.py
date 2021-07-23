@@ -5,13 +5,13 @@ from flask_login import UserMixin
 from uuid import uuid4
 from werkzeug.security import check_password_hash as cph
 from werkzeug.security import generate_password_hash as gph
-from app import db
+from models.engine import db
 
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(60), primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(256), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
@@ -27,8 +27,8 @@ class User(db.Model, UserMixin):
         return cph(self.password, password)
 
     def save(self):
-        if not self.id:
-            db.session.add(self)
+        print("Guardando")
+        db.session.add(self)
         db.session.commit()
 
     @staticmethod
