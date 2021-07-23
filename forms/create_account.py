@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Forms module"""
+"""Forms module Create account"""
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from flask_wtf.file import FileField as ff

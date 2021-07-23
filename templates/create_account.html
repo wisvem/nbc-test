@@ -7,6 +7,9 @@
   </head>
   <body>
     <div class="container">
+      {% if error %}
+      <p style="color: red"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
       <form action="" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <div>
