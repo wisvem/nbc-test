@@ -83,7 +83,7 @@ def create_account():
         profile_pic = form.pic.data
         user = User.get_by_email(email)
         if user:
-            error = f'El {email} ya se encuentra registrado'
+            error = f'El correo {email} ya se encuentra registrado'
         else:
             user = User()
             pic_name = secure_filename(profile_pic.filename)
@@ -114,4 +114,4 @@ def load_user(user_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
