@@ -48,6 +48,9 @@ If you see the next message block, that means the app if ready for use.
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
+Go to http://127.0.0.1:5000/ and enjoy.
+
+
 ## Folder structure
 
 ```
@@ -74,12 +77,10 @@ If you see the next message block, that means the app if ready for use.
 
 - User management module
 - Recover password module
-- Validate strong password
+- Validate strong password (Just add a regex to validators)
 - Validate if the user email is real
-
-
-  Go to http://127.0.0.1:5000/ and enjoy.
-
+- Makeover
+- Separate front ofr backend
 
 
 ## Authors
