@@ -50,6 +50,7 @@ If you see the next message block, that means the app if ready for use.
 
 ## Folder structure
 
+```
 ├── README.md
 ├── app.py
 ├── forms
@@ -67,7 +68,7 @@ If you see the next message block, that means the app if ready for use.
     ├── create_account.html
     ├── index.html
     └── login.html
-
+```
 
 ## Pending
 
