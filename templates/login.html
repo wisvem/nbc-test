@@ -3,30 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/main.css" />
     <title>TSP Test - Login page</title>
   </head>
   <body>
-    <div>
+    <div class="login_form">
+      <h2 class="nbc_logo"></h2>
       <form action="" method="post">
         {{ form.hidden_tag() }}
         <div>
-          {{ form.email.label }} {{ form.email }}<br />
+          {{ form.email.label(class="field") }}
+          <br />
+          {{ form.email(class="form_control")}}<br />
           {% for error in form.email.errors %}
           <span style="color: red">{{ error }}</span>
           {% endfor %}
         </div>
         <div>
-          {{ form.password.label }} {{ form.password }}<br />
+          {{ form.password.label(class="field") }}
+          <br />
+          {{ form.password(class="form_control") }}<br />
           {% for error in form.password.errors %}
           <span style="color: red">{{ error }}</span>
           {% endfor %}
         </div>
         <div>{{ form.remember_me() }} {{ form.remember_me.label }}</div>
-        <div>{{ form.submit() }}</div>
+        <div>{{ form.submit(class="btn-primary") }}</div>
+        <div>
+          <a href="{{ url_for('create_account') }}">Crear una cuenta</a>
+        </div>
       </form>
-    </div>
-    <div>
-      <a href="{{ url_for('create_account') }}">Crear una cuenta</a>
     </div>
   </body>
 </html>
