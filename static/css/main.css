@@ -51,7 +51,7 @@ body {
   margin-bottom: 5px;
 }
 .nbc_logo {
-  background: url(https://www.nbc-latam.com/wp-content/uploads/2020/09/LOGO-HORIZONTAL-COLOR-250X100.png)
+  background: url(../images/LOGO-HORIZONTAL-COLOR-250X100.png)
     no-repeat center;
   background-size: contain;
   height: 80px;
@@ -93,4 +93,9 @@ a:hover {
 }
 .file-custom:after {
   content: "Elige una foto";
+}
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }

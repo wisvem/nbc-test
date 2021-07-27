@@ -14,15 +14,15 @@ formats = ['jpg', 'png', 'jpeg']
 class CreateAccountForm(FlaskForm):
 
     name = StringField('Nombre', validators=[DataRequired(), Length(max=64)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    email = StringField('Email', validators=[DataRequired(), Email(message="Correo invalido")])
     pic = ff('Foto', validators=[fa(formats,
                                     'Formatos válidos '+', '.join(formats)),
                                  fr(message='La foto es obligatoria')],
              )
     password = PasswordField('Contraseña', validators=[
                              DataRequired(),
-                             Length(min=1, message='Muy corta'),
+                             Length(min=3, message='Contraseña muy corta'),
                              EqualTo('confirm',
-                                     message='Passwords must match')])
+                                     message='Las contraseñas no coinciden')])
     confirm = PasswordField('Confirmar contraseña')
     submit = SubmitField('Crear cuenta')

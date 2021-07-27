@@ -14,7 +14,7 @@
       <p><a href="/login">Iniciar sesión</a></p>
       {% else %}
       <img src="{{ url_for('user_pic', filename=current_user.pic_name) }}" />
-      <h2>Hola {{ current_user.name }}, Bienvenido a NBC Latam</h2>
+      <h2>Hola {{ current_user.name }}, Bienvenid@ a NBC Latam</h2>
       <br />
       <a href="{{ url_for('logout') }}">Cerrar sesión</a>
       {% endif %}
