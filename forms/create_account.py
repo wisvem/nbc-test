@@ -10,17 +10,19 @@ from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 formats = ['jpg', 'png', 'jpeg']
 
+
 class CreateAccountForm(FlaskForm):
 
     name = StringField('Nombre', validators=[DataRequired(), Length(max=64)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     pic = ff('Foto', validators=[fa(formats,
-                                     'Formatos válidos '+', '.join(formats)),
-                                  fr(message='La foto es obligatoria')])
+                                    'Formatos válidos '+', '.join(formats)),
+                                 fr(message='La foto es obligatoria')],
+             )
     password = PasswordField('Contraseña', validators=[
                              DataRequired(),
                              Length(min=1, message='Muy corta'),
                              EqualTo('confirm',
                                      message='Passwords must match')])
     confirm = PasswordField('Confirmar contraseña')
-    submit = SubmitField('Crear')
+    submit = SubmitField('Crear cuenta')
