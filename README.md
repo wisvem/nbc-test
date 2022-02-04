@@ -1,4 +1,4 @@
-# TSP Test - Login App
+# NBC Test - Login App
 
 A simple registration/login app that shows a welcome message and the profile picture of a registered user.
 This app was developed using Python, Flask, SQLAlchemy and MySQL.
